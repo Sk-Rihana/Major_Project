@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.shutterstock.com/image-photo/good-air-quality-clean-outdoor-600nw-2421635111.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            color: white;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color:url('https://www.shutterstock.com/image-photo/good-air-quality-clean-outdoor-600nw-2421635111.jpg');
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar button {
+            color: rgb(5, 11, 14);
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #66cd93;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .sidebar button:hover {
+            background-color: #ed9c3d;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            margin-left: 250px;
+            position: relative;
+        }
+
+        .profile {
+            background-color: transparent;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .upload-button {
+            position: absolute;
+            top: 50px; /* Keeps the upload button near the top */
+            right: 20px;
+            text-align: center;
+            z-index: 10; /* Ensures visibility over other elements */
+        }
+
+        .upload-button input[type="file"] {
+            display: none;
+        }
+
+        .upload-button label {
+            padding: 10px 20px;
+            background-color: #88e6e6;
+            color: rgb(8, 8, 8);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .upload-button label:hover {
+            background-color: #4cae4c;
+        }
+
+        /* Arrow Styling */
+        .arrow {
+            font-size: 60px;
+            font-weight: bold;
+            color: #eda4d4;
+            margin-top: 5px; /* Small gap between button and arrow */
+            text-align: center;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Tooltip */
+        .tooltip {
+            display: none;
+            position: absolute;
+            top: -30px;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .upload-button:hover .tooltip {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Profile</h2>
+    <p>Username: User123</p>
+    <p>Email: user@example.com</p>
+    <h2>Dashboard</h2>
+    <button onclick="window.location.href='index.html'">Home</button>
+    <button onclick="window.location.href='setting.html'">Settings</button>
+    <button onclick="window.location.href='logout.html'">Logout</button>
+</div>
+
+<div class="main-content">
+    <div class="profile">
+        <h2>Welcome, User123!</h2>
+    </div>
+</div>
+
+<!-- Upload Button -->
+<div class="upload-button">
+    <label onclick="window.location.href='upload.html'">Upload</label>
+    <!-- Tooltip -->
+    <div class="tooltip">To upload a file, click on Upload.</div>
+    <!-- Large Arrow -->
+    <div class="arrow">⬆</div>
+</div>
+
+</body>
+</html>

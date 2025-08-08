@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Settings Page</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color:rgb(161, 232, 241);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f1e8d0;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .back-button {
+      font-size: 20px;
+      margin-right: 10px;
+    }
+
+    .header-text {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .settings-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .setting-item {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .setting-item:last-child {
+      border-bottom: none;
+    }
+
+    .setting-item i {
+      margin-right: 15px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      border-radius: 34px;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: #f3f8f0;
+      border-radius: 50%;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="#" class="back-button"><</a>
+      <span class="header-text">Settings</span>
+    </div>
+    <div class="settings-list">
+      <div class="setting-item">
+        <i class="fas fa-home"></i>
+        <a href="2new.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+      </div>
+      <div class="setting-item">
+        <i class="fas fa-user"></i>
+        <a href="myprofile.html">My Profile</a>
+        <i class="fas fa-chevron-right"></i>
+      </div>
+      <div class="setting-item">
+        <i class="fas fa-bell"></i>
+        <span>Notification</span>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="setting-item">
+        <i class="fas fa-envelope"></i>
+        <a href="change_email.html">Change Email</a>
+        <i class="fas fa-chevron-right"></i>
+      </div>
+      <div class="setting-item">
+        <i class="fas fa-key"></i>
+        <a href="change_password.html">Change Password</a>
+        <i class="fas fa-chevron-right"></i>
+      </div>
+      <div class="setting-item">
+        <i class="fas fa-star"></i>
+        <a href="Rating.html">RateUs</a>
+        <i class="fas fa-chevron-right"></i>
+      </div>
+      <div class="setting-item">
+        <i class="fas fa-sign-out-alt"></i>
+        <a href="logout.html">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Add event listeners to settings items (optional)
+    const settingItems = document.querySelectorAll('.setting-item');
+    settingItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Handle click event for each item
+      });
+    });
+  </script>
+</body>
+</html>

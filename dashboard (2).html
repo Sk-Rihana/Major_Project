@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard with File Uploads</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #174181;
+            margin: 0;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #89a9e8;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            color: rgb(5, 11, 14);
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .profile {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .upload-section {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-section h3 {
+            background-color: #ffffff;
+            margin-top: 0;
+        }
+
+        .upload-link {
+            margin: 10px 0;
+        }
+
+        input[type="file"] {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Profile</h2>
+    <p>Username: User123</p>
+    <p>Email: user@example.com</p>
+    <h2>Dashboard</h2>
+    <a href="2new.html">Home</a> <!-- Link to home page -->
+    <a href="setting.html">Settings</a>
+    <a href="logout.html">Logout</a>
+</div>
+
+<div class="main-content">
+    <div class="profile">
+        <h2>Welcome, User123!</h2>
+        <p>Manage your uploads and settings from the dashboard.</p>
+    </div>
+
+    <div class="upload-section">
+        <h3>Upload Files</h3>
+        <div class="upload-link">
+            <label for="fileUpload1">Upload Satellite data:</label>
+            <input type="file" id="fileUpload1" accept=".pdf,.doc,.docx">
+            <button onclick="uploadFile('fileUpload1')">Upload</button>
+        </div>
+        <div class="upload-link">
+            <label for="fileUpload2">Upload Ground Measurement Data:</label>
+            <input type="file" id="fileUpload2" accept=".jpg,.jpeg,.png,.gif">
+            <button onclick="uploadFile('fileUpload2')">Upload</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function uploadFile(inputId) {
+        const input = document.getElementById(inputId);
+        const file = input.files[0];
+
+        if (file) {
+            alert(`File "${file.name}" uploaded successfully!`);
+        } else {
+            alert('Please select a file to upload.');
+        }
+    }
+</script>
+
+</body>
+</html>

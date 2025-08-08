@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu with Profile Picture</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    .hamburger-menu {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      cursor: pointer;
+    }
+    .hamburger-menu div {
+      width: 30px;
+      height: 4px;
+      background-color: #333;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+    .menu {
+      position: fixed;
+      top: 0;
+      left: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: #2c6cd3;
+      color: white;
+      overflow-y: auto;
+      transition: 0.4s;
+      padding: 20px;
+    }
+    .menu.active {
+      left: 0;
+    }
+    .menu h2 {
+      margin: 0;
+      padding: 10px 0;
+      text-align: center;
+      border-bottom: 1px solid #444;
+    }
+    .menu ul {
+      list-style: none;
+      padding: 0;
+    }
+    .menu ul li {
+      padding: 15px 10px;
+      border-bottom: 1px solid #444;
+      cursor: pointer;
+    }
+    .menu ul li:hover {
+      background-color: #374151;
+    }
+    .info-box {
+      margin: 100px auto;
+      max-width: 800px;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    .profile-picture {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      padding: 2px; /* Space for gradient border */
+    }
+    .profile-picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%; /* Ensures the inner image stays circular */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Profile Picture -->
+<div class="profile-picture" onclick="showProfile()">
+  <img src="https://via.placeholder.com/50" alt="Profile Picture">
+</div>
+
+<!-- Hamburger Menu -->
+<div class="hamburger-menu" onclick="toggleMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="menu" id="menu">
+  <h2>Menu</h2>
+  <ul>
+    <li onclick="showInfo('satellite')">Satellite Data</li>
+    <li onclick="showInfo('downscaling')">Downscaling Methods</li>
+    <li onclick="showInfo('airQuality')">Air Quality Parameters</li>
+    <li onclick="showInfo('models')">Machine Learning Models</li>
+    <li onclick="showInfo('applications')">Applications</li>
+    <li onclick="showInfo('settings')">Settings</li>
+    <li onclick="showInfo('updates')">Updates</li>
+    <li onclick="showInfo('help')">Help</li>
+  </ul>
+</div>
+
+<!-- Information Box -->
+<div class="info-box" id="infoBox">
+  <h2>Welcome</h2>
+  <p>Select an option from the menu to learn more about it.</p>
+</div>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.classList.toggle("active");
+  }
+
+  function showInfo(topic) {
+    const infoBox = document.getElementById("infoBox");
+    let title = "";
+    let content = "";
+
+    switch (topic) {
+      case "satellite":
+        title = "Satellite Data";
+        content =
+          "Satellite data provides a global view of air quality, including key pollutants like NO2, PM2.5, and ozone, captured using sensors.";
+        break;
+      case "downscaling":
+        title = "Downscaling Methods";
+        content =
+          "Downscaling involves transforming coarse satellite data into high-resolution air quality maps using statistical or machine learning techniques.";
+        break;
+      case "airQuality":
+        title = "Air Quality Parameters";
+        content =
+          "Important air quality parameters include particulate matter (PM2.5, PM10), nitrogen dioxide (NO2), sulfur dioxide (SO2), and ozone (O3).";
+        break;
+      case "models":
+        title = "Machine Learning Models";
+        content =
+          "Machine learning models, such as Random Forest and Neural Networks, are used to predict and improve air quality estimations.";
+        break;
+      case "applications":
+        title = "Applications";
+        content =
+          "High-resolution air quality maps support urban planning, public health research, and policy-making to combat air pollution.";
+        break;
+      case "settings":
+        title = "Settings";
+        content =
+          "Adjust your preferences, such as update frequency, data sources, and user interface customization.";
+        break;
+      case "updates":
+        title = "Updates";
+        content =
+          "Check for new features, bug fixes, and improvements in the air quality monitoring system.";
+        break;
+      case "help":
+        title = "Help";
+        content =
+          "Get assistance with using the system, FAQs, and contact details for support.";
+        break;
+      default:
+        title = "Welcome";
+        content = "Select an option from the menu to learn more about it.";
+    }
+
+    infoBox.innerHTML = `<h2>${title}</h2><p>${content}</p>`;
+  }
+
+  function showProfile() {
+    const infoBox = document.getElementById("infoBox");
+    infoBox.innerHTML = `<h2>Profile</h2><p>This is your profile section. You can add user-specific details here.</p>`;
+  }
+</script>
+
+</body>
+</html>

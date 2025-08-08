@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Downscaling of Air Quality Mapped Using AI/ML</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #209c96, #89509b); 
+      color: #333; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Login container styles */
+    .login-container {
+      background: white; 
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 400px;
+      text-align: center;
+    }
+
+    /* Heading styles */
+    h1 {
+      margin-bottom: 20px; 
+      font-size: 24px; 
+      color: hsl(271, 64%, 55%); 
+    }
+
+    /* Textbox styles */
+    .textbox {
+      margin: 15px 0; 
+    }
+
+    .textbox input {
+      width: 100%; 
+      padding: 15px; 
+      border: 1px solid #ddd; 
+      border-radius: 10px; 
+      font-size: 16px; 
+      transition: border-color 0.3s; 
+    }
+
+    .textbox input:focus {
+      border-color: #4978dd; 
+      outline: none; 
+    }
+
+    /* Button styles */
+    .btn {
+      width: 100%; 
+      padding: 15px; 
+      background: #5549c7; 
+      border: none; 
+      border-radius: 10px; 
+      color: white; 
+      cursor: pointer; 
+      font-size: 16px; 
+      transition: background 0.3s; 
+    }
+
+    .btn:hover {
+      background: #df88e2; 
+    }
+
+    /* Footer text styles */
+    .footer-text {
+      margin-top: 20px; 
+      font-size: 12px; 
+      color: #777; 
+    }
+
+    /* Toggle container styles */
+    .toggle-container {
+      margin-top: 20px; 
+    }
+
+    /* Toggle button styles */
+    .toggle-btn {
+      background: #5549c7; 
+      border: none; 
+      color: white; 
+      cursor: pointer; 
+      font-size: 16px; 
+      transition: background 0.3s; 
+      padding: 5px 10px; 
+      border-radius: 5px; 
+    }
+
+    .toggle-btn:hover {
+      background: #4978dd; 
+    }
+
+    /* Forgot password link */
+    .forgot-password {
+      color: #4978dd;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 10px;
+      display: inline-block;
+      text-decoration: underline;
+    }
+
+    .forgot-password:hover {
+      color: #5549c7;
+    }
+
+    /* Hidden class */
+    .hidden {
+      display: none; 
+    }
+
+    /* Style for the Sign In button without a background color */
+    .sign-in-btn {
+      background: none;
+      color: #5549c7;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: underline;
+    }
+
+    .sign-in-btn:hover {
+      color: #4978dd;
+    }
+  </style>
+  <script>
+    function toggleForms() {
+      const loginForm = document.getElementById('loginForm');
+      const signupForm = document.getElementById('signupForm');
+      loginForm.classList.toggle('hidden');
+      signupForm.classList.toggle('hidden');
+    }
+
+    function handleLogin() {
+      alert('Login functionality not implemented yet.'); 
+    }
+
+    function handleSignup() {
+      const username = document.querySelector('#signupForm input[type="text"]').value.trim();
+      const email = document.querySelector('#signupForm input[type="email"]').value.trim();
+      const password = document.querySelector('#signupForm input[type="password"]').value.trim();
+
+      const emailRegex = /^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$/; 
+      if (!emailRegex.test(email)) {
+        alert('Invalid email address. Please use lowercase letters, numbers, periods, underscores, and hyphens only.');
+        return;
+      }
+
+      if (!username || !email || !password) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      alert(`Signup successful!\nUsername: ${username}\nEmail: ${email}`); 
+
+      document.getElementById('successMessage').classList.remove('hidden');
+
+      document.querySelector('#signupForm').reset();
+
+      // Automatically redirect to the login page after a short delay
+      setTimeout(() => {
+        toggleForms(); // Switch back to the login form
+      }, 2000); // 2-second delay to show the success message
+    }
+
+    function handleForgotPassword() {
+      const input = prompt("Enter your email or phone number to reset your password:");
+      if (input) {
+        alert("Thank you! We will send reset instructions to: " + input);
+      } else {
+        alert("Please enter a valid email or phone number.");
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Welcome to Air Quality Mapping</h1>
+
+    <div id="loginForm">
+      <p>Please log in to continue</p>
+      <div class="textbox">
+        <input type="text" placeholder="Username" required>
+      </div>
+      <div class="textbox">
+        <input type="password" placeholder="Password" required>
+      </div>
+      <button type="button" class="btn" onclick="handleLogin()">Sign In</button>
+      <p class="footer-text">Powered by AI/ML Technology</p>
+      <div class="toggle-container">
+        <p>Don't have an account? <button class="toggle-btn" onclick="toggleForms()">Sign Up</button></p>
+      </div>
+      <a class="forgot-password" onclick="handleForgotPassword()">Forgot Password?</a>
+    </div>
+
+    <div id="signupForm" class="hidden">
+      <p>Create an account</p>
+      <div class="textbox">
+        <input type="text" placeholder="Username" required>
+      </div>
+      <div class="textbox">
+        <input type="email" placeholder="Email" required>
+      </div>
+      <div class="textbox">
+        <input type="password" placeholder="New Password" required>
+      </div>
+      <button type="button" class="btn" onclick="handleSignup()">Register</button> 
+      <div id="successMessage" class="hidden">
+        <span style="color: green;">✔️</span> Signup successful!
+      </div>
+      <button type="button" class="sign-in-btn" onclick="toggleForms()">Sign In</button> <!-- Updated Sign In button -->
+    </div>
+  </div>
+</body>
+</html>

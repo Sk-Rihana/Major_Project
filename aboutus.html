@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downscaling of Satellite-Based Air Quality</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.pixalytics.com/wp-content/uploads/2016/01/16899602_ml.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100vh;
+        }
+
+        /* Navigation styling */
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        /* Main content wrapper for centering titles */
+        .content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 50px); /* Adjust for the nav height */
+            text-align: center;
+            flex-direction: column;
+        }
+
+        /* Styling for Welcome Title */
+        .content-wrapper h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        /* Enhanced styling for the project title */
+        .content-wrapper h2 {
+            margin-top: 10px;
+            font-size: 2em;
+            background: #ffffff; /* Gradient */
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
+            font-weight: bold;
+            letter-spacing: 1px; /* Slight spacing between letters */
+            text-transform: uppercase; /* Uppercase letters */
+            font-family: 'Arial', sans-serif; /* Font for a modern look */
+        }
+
+        /* About Us Section */
+        #about {
+            display: none; /* Initially hidden */
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+    <script>
+        function toggleAbout() {
+            const aboutSection = document.getElementById('about');
+            if (aboutSection.style.display === 'none' || aboutSection.style.display === '') {
+                aboutSection.style.display = 'block';
+            } else {
+                aboutSection.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation at the top -->
+    <nav>
+        <a href="1.html">Login</a>
+        <a href="#about" onclick="toggleAbout()">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="register.html">Back to Home</a>
+    </nav>
+
+    <!-- Content in the middle of the page -->
+    <div class="content-wrapper">
+        <h1>Welcome</h1>
+        <h2>Downscaling of Satellite-Based Air Quality Map</h2>
+    </div>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2>About the Project</h2>
+        <p>This project focuses on downscaling satellite-based air quality maps using advanced AI and machine learning techniques. Our goal is to provide high-resolution air quality data that can be used for better environmental monitoring and policy-making.</p>
+        <p>By leveraging satellite data, we aim to enhance the accuracy of air quality predictions, helping communities understand and respond to air quality issues more effectively.</p>
+    </section>

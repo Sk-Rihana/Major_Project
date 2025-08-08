@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: sans-serif;
+}
+
+.profile-container {
+  width: 1000px;
+  height: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 10px solid #7ba2c9;
+  border-radius: 5px;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-info {
+  margin-bottom: 15px;
+}
+
+.edit-button {
+  background-color: #4CAF50;
+  color: rgb(243, 237, 237);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit-form {
+  display: none;
+}
+
+.edit-form input, .edit-form select, .edit-form button {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #171010;
+  border-radius: 3px;
+}
+
+.save-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="profile-container" id="profile-container">
+  <div class="profile-header">
+    <h2>My Profile</h2>
+  </div>
+
+  <div class="profile-info" id="profile-info">
+    <p><strong>Name:</strong> <span id="display-name">User123</span></p>
+    <p><strong>Email:</strong> <span id="display-email">user123@gmail.com</span></p>
+    <p><strong>Phone:</strong> <span id="display-phone">+123 456 7890</span></p>
+  </div>
+
+  <button class="edit-button" onclick="editProfile()">Edit Profile</button>
+</div>
+
+<div class="edit-form" id="edit-form">
+  <h2>Edit Profile</h2>
+  <form>
+    <input type="text" placeholder="First Name" id="first-name" value="User">
+    <input type="text" placeholder="Last Name" id="last-name" value="123">
+    <input type="text" placeholder="Username" id="username" value="User123">
+    <input type="email" placeholder="Email" id="email" value="user123@gmail.com">
+    <input type="tel" placeholder="Phone Number" id="phone" value="+123 456 7890">
+    <input type="date" placeholder="Birth Date" id="birth-date">
+    <select id="gender">
+      <option value="">Select Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+    <input type="password" placeholder="New Password" id="password">
+    <button type="button" class="save-button" onclick="saveProfile()">Save Changes</button>
+  </form>
+</div>
+
+<script>
+function editProfile() {
+  // Hide profile information and show the edit form
+  document.getElementById('profile-container').style.display = 'none';
+  document.getElementById('edit-form').style.display = 'block';
+}
+
+function saveProfile() {
+  // Get values from the form
+  const firstName = document.getElementById('first-name').value;
+  const lastName = document.getElementById('last-name').value;
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+
+  // Update the profile information with the new values
+  document.getElementById('display-name').innerText = firstName + ' ' + lastName;
+  document.getElementById('display-email').innerText = email;
+  document.getElementById('display-phone').innerText = phone;
+
+  // Show the profile section and hide the edit form
+  document.getElementById('edit-form').style.display = 'none';
+  document.getElementById('profile-container').style.display = 'block';
+
+  alert("Profile updated successfully!");
+}
+</script>
+
+</body>
+</html>

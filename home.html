@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Downscaling of Satellite-Based Air Quality</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://www.pixalytics.com/wp-content/uploads/2016/01/16899602_ml.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100vh;
+    }
+
+    nav {
+      background: transparent;
+      overflow: hidden;
+      text-align: right;
+      padding: 10px 0;
+    }
+
+    nav a {
+      display: inline-block;
+      color: #fff;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: linear-gradient(45deg, #7f53ac, #647dee);
+    }
+
+    .content-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 50px);
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .content-wrapper h1 {
+      margin-top: 100px;
+      font-size: 4em;
+
+      margin: 0;
+      color: #fff;
+    }
+
+    .content-wrapper h2 {
+      margin-top: 100px;
+      font-size: 3em;
+      background: #ffffff;
+      -webkit-background-clip: text;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: 'Arial', sans-serif;
+      animation: fadeInSlide 2s ease-out;
+    }
+
+    @keyframes fadeInSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    #about-info, #contact-info {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #2292e2;
+      padding: 20px;
+      border: 1px solid #ccc;
+      width: 50%;
+      max-width: 500px;
+      border-radius: 10px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #ffffff;
+      border: none;
+      color: #000;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+    }
+
+    .close-btn:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="login.html">Login</a> <!-- Link to the login page -->
+    <a href="#about" onclick="showAboutUs()">About Us</a>
+    <a href="#contact" onclick="showContact()">Contact</a>
+  </nav>
+
+  <div class="content-wrapper">
+    <h1>Welcome</h1>
+    <h2>Downscaling of Satellite-Based Air Quality Map</h2>
+  </div>
+
+  <div id="about-info">
+    <button class="close-btn" onclick="closeSection('about-info')">X</button>
+    <h2>About This Project</h2>
+    <p>This project downscales satellite-based air quality images to improve their resolution and accuracy.</p>
+    
+  </div>
+
+  <div id="contact-info">
+    <button class="close-btn" onclick="closeSection('contact-info')">X</button>
+    <h2>Contact Us</h2>
+    <p>For any queries, please contact us at:</p>
+    <p>Email: airqualitymapqueries@gmail.com</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Downscaling of Satellite-Based Air Quality. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showAboutUs() {
+      closeSection('contact-info'); 
+      const aboutInfo = document.getElementById("about-info");
+      aboutInfo.style.display = "block";
+    }
+
+    function showContact() {
+      closeSection('about-info'); 
+      const contactInfo = document.getElementById("contact-info");
+      contactInfo.style.display = "block";
+    }
+
+    function closeSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.style.display = "none";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Logout Confirmation</title>
+<style>
+body {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 50px;
+}
+
+.container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Logout from status?</h2>
+  <button onclick="cancelLogout()">Cancel</button>
+  <button onclick="confirmLogout()">Logout</button>
+</div>
+
+<script>
+function cancelLogout() {
+  // Handle cancel action here (e.g., close the dialog)
+  alert("Logout canceled.");
+}
+
+function confirmLogout() {
+  // Handle logout action here (e.g., redirect to logout page)
+  alert("Logging out...");
+  // Replace with your actual logout logic
+  window.location.href = "logout_page.html"; 
+}
+</script>
+
+</body>
+</html>

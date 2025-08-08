@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Email</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: black; /* Set heading color to black */
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: black; /* Set label color to black */
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      color: black; /* Set input text color to black */
+    }
+
+    .form-group input:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .submit-btn {
+      background-color: #007BFF;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Change Email</h2>
+    <form id="changeEmailForm">
+      <div class="form-group">
+        <label for="oldEmail">Old Email</label>
+        <input type="email" id="oldEmail" name="oldEmail" required>
+        <div class="error-message" id="oldEmailError">Please enter a valid old email.</div>
+      </div>
+      <div class="form-group">
+        <label for="newEmail">New Email</label>
+        <input type="email" id="newEmail" name="newEmail" required>
+        <div class="error-message" id="newEmailError">Please enter a valid new email.</div>
+      </div>
+      <div class="form-group">
+        <label for="confirmEmail">Confirm New Email</label>
+        <input type="email" id="confirmEmail" name="confirmEmail" required>
+        <div class="error-message" id="confirmEmailError">Emails do not match.</div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <div class="error-message" id="passwordError">Password is required.</div>
+      </div>
+      <button type="submit" class="submit-btn">Change Email</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('changeEmailForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      let isValid = true;
+
+      // Get form values
+      const oldEmail = document.getElementById('oldEmail').value.trim();
+      const newEmail = document.getElementById('newEmail').value.trim();
+      const confirmEmail = document.getElementById('confirmEmail').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      // Error elements
+      const oldEmailError = document.get ElementById('oldEmailError');
+      const newEmailError = document.getElementById('newEmailError');
+      const confirmEmailError = document.getElementById('confirmEmailError');
+      const passwordError = document.getElementById('passwordError');
+
+      // Reset errors
+      oldEmailError.style.display = 'none';
+      newEmailError.style.display = 'none';
+      confirmEmailError.style.display = 'none';
+      passwordError.style.display = 'none';
+
+      // Regular expression for email validation
+      const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+      // Validate old email
+      if (!oldEmail || !emailPattern.test(oldEmail)) {
+        oldEmailError.style.display = 'block';
+        isValid = false;
+      }
+
+      // Validate new email
+      if (!newEmail || !emailPattern.test(newEmail)) {
+        newEmailError.style.display = 'block';
+        isValid = false;
+      }
+
+      // Validate confirm email
+      if (newEmail !== confirmEmail) {
+        confirmEmailError.style.display = 'block';
+        isValid = false;
+      }
+
+      // Validate password
+      if (!password) {
+        passwordError.style.display = 'block';
+        isValid = false;
+      }
+
+      // If valid, process the form
+      if (isValid) {
+        alert('Email successfully changed!');
+        // Add form submission logic here (e.g., send data to a server)
+      }
+    });
+  </script>
+</body>
+</html>

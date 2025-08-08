@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: sans-serif;
+  background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: black; /* Changed text color to black */
+}
+
+.profile-container {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  padding: 20px;
+  border: 10px solid #7ba2c9;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.9); /* Changed semi-transparent background to lighter */
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-info {
+  margin-bottom: 15px;
+}
+
+.edit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit-form {
+  display: none;
+   /* Changed semi-transparent background to lighter */
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.edit-form label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+.edit-form input, .edit-form select, .edit-form button {
+  width: 50%; /* Reduced width for smaller input boxes */
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #171010;
+  border-radius: 3px;
+}
+
+.save-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="profile-container" id="profile-container">
+  <div class="profile-header">
+    <h2>My Profile</h2>
+  </div>
+
+  <div class="profile-info" id="profile-info">
+    <p><strong>Name:</strong> <span id="display-name">User123</span></p>
+    <p><strong>Email:</strong> <span id="display-email">user123@gmail.com</span></p>
+    <p><strong>Phone:</strong> <span id="display-phone">+123 456 7890</span></p>
+  </div>
+
+  <button class="edit-button" onclick="editProfile()">Edit Profile</button>
+</div>
+
+<div class="edit-form" id="edit-form">
+  <h2>Edit Profile</h2>
+  <form>
+    <label for="first-name">Firstname:</label>
+    <input type="text" id="first-name" placeholder="Enter First Name">
+
+    <label for="last-name">Lastname:</label>
+    <input type="text" id="last-name" placeholder="Enter Last Name">
+
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter Email">
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" placeholder="Enter Phone Number">
+
+    <label for="birth-date">DOB:</label>
+    <input type="date" id="birth-date">
+
+    <label for="gender">Gender:</label>
+    <select id="gender">
+      <option value="">Select Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label for="password">New Password:</label>
+    <input type="password" id="password" placeholder="Enter New Password">
+
+    <button type="button" class="save-button" onclick="saveProfile()">Save Changes</button>
+  </form>
+</div>
+
+<script>
+function editProfile() {
+  // Hide profile information and show the edit form
+  document.getElementById('profile-container').style.display = 'none';
+  document.getElementById('edit-form').style.display = 'block';
+}
+
+function saveProfile() {
+  // Get values from the form
+  const firstName = document.getElementById('first-name').value;
+  const lastName = document.getElementById('last-name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const birthDate = document.getElementById('birth-date').value;
+  const gender = document.getElementById('gender').value;
+  const password = document.getElementById('password').value;
+
+  // Check if all fields are filled
+  if (!firstName || !lastName || !email || !phone || !birthDate || !gender || !password) {
+    alert("Please fill all the fields.");
+    return;
+  }
+
+  const username = `${firstName} ${lastName}`;
+
+  // Update the profile information with the new values
+  document.getElementById('display-name').innerText = username;
+  document.getElementById('display-email').innerText = email;
+  document.getElementById('display-phone').innerText = phone;
+
+  // Show the profile section and hide the edit form
+  document.getElementById('edit-form').style.display = 'none';
+  document.getElementById('profile-container').style.display = 'block';
+
+  alert("Profile updated successfully!");
+}
+</script>
+
+</body>
+</html>

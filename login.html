@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Downscaling of Air Quality Mapped Using AI/ML</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #209c96, #89509b);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: hsl(271, 64%, 55%);
+        }
+
+        .textbox {
+            margin: 15px 0;
+        }
+
+        .textbox input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .textbox input:focus {
+            border-color: #4978dd;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: #5549c7;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #df88e2;
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        .toggle-container {
+            margin-top: 20px;
+        }
+
+        .toggle-btn {
+            background: #5549c7;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .toggle-btn:hover {
+            background: #4978dd;
+        }
+
+        .hidden {
+            display: none; 
+        }
+    </style>
+    <script>
+        function toggleForms() {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            loginForm.classList.toggle('hidden');
+            signupForm.classList.toggle('hidden');
+        }
+
+        function handleLogin() {
+           // Handle login logic here
+           alert('Login functionality not implemented yet.');
+       }
+
+       function handleSignup() {
+           // Collect user input
+           const username = document.querySelector('#signupForm input[type="text"]').value.trim();
+           const email = document.querySelector('#signupForm input[type="email"]').value.trim();
+           const password = document.querySelector('#signupForm input[type="password"]').value.trim();
+
+           // Basic validation
+           if (!username || !email || !password) {
+               alert('Please fill in all fields.');
+               return; // Exit function if validation fails
+           }
+
+           // Simulate signup process (you would typically send this to a server)
+           alert(`Signup successful!\nUsername: ${username}\nEmail: ${email}`);
+           
+           // Optionally clear the form fields after submission
+           document.querySelector('#signupForm').reset();
+       }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Welcome to Air Quality Mapping</h1>
+
+        <!-- Sign In Form -->
+        <div id="loginForm">
+             <p>Please log in to continue</p>
+             <div class="textbox">
+                 <input type="text" placeholder="Username" required>
+             </div>
+             <div class="textbox">
+                 <input type="password" placeholder="Password" required>
+             </div>
+             <button type="button" class="btn" onclick="handleLogin()">Sign In</button>
+             
+             <!-- Footer Text -->
+             <p class="footer-text">Powered by AI/ML Technology</p>
+
+             <!-- Toggle to Sign Up -->
+             <div class="toggle-container">
+                <p>Don't have an account? <button class="toggle-btn" onclick="toggleForms()">Sign Up</button></p>
+             </div>
+         </div>
+
+         <!-- Sign Up Form -->
+<div id="signupForm" class="hidden">
+    <p>Create an account</p>
+    <div class="textbox">
+        <input type="text" placeholder="Username" required>
+    </div>
+    <div class="textbox">
+        <input type="email" placeholder="Email" required>
+    </div>
+    <div class="textbox">
+        <input type="password" placeholder="New Password" required>
+    </div>
+    <!-- Register Button -->
+    <button type="button" class="btn" onclick="handleSignup()">Register</button> 
+
+    <!-- Success Message -->
+    <div id="successMessage" class="hidden">
+        <span style="color: green;">✔️</span> Signup successful!
+    </div>
+</div>
+
+<script>
+function handleSignup() {
+    const username = document.querySelector('#signupForm input[type="text"]').value.trim();
+    const email = document.querySelector('#signupForm input[type="email"]').value.trim();
+    const password = document.querySelector('#signupForm input[type="password"]').value.trim();
+
+    if (!username || !email || !password) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    // Simulate signup process
+    alert(`Signup successful!\nUsername: ${username}\nEmail: ${email}`);
+    
+    // Show success message
+    document.getElementById('successMessage').classList.remove('hidden');
+    
+    // Optionally clear the form fields after submission
+    document.querySelector('#signupForm').reset();
+}
+</script>
+
+<style>
+.hidden {
+    display: none; 
+}
+</style>
+</body>
+</html>

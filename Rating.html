@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Five Star Rating with Feedback</title>
+<style>
+.rating {
+  display: flex;
+  justify-content: center;
+}
+
+.rating-star {
+  margin: 30px;
+  font-size: 5em;
+  color: #e6f0e6;
+  cursor: pointer;
+}
+
+.rating-star.filled {
+  color: gold;
+}
+
+#feedback {
+  margin-top: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h2>Rate Us Your Experience</h2>
+
+<div class="rating">
+  <span class="rating-star" onclick="rate(1)">&#9733;</span>
+  <span class="rating-star" onclick="rate(2)">&#9733;</span>
+  <span class="rating-star" onclick="rate(3)">&#9733;</span>
+  <span class="rating-star" onclick="rate(4)">&#9733;</span>
+  <span class="rating-star" onclick="rate(5)">&#9733;</span>
+</div>
+
+<p id="feedback"></p>
+
+<script>
+function rate(rating) {
+  var stars = document.querySelectorAll('.rating-star');
+  for (var i = 0; i < stars.length; i++) {
+    if (i < rating) {
+      stars[i].classList.add('filled');
+    } else {
+      stars[i].classList.remove('filled');
+    }
+  }
+
+  var feedback = document.getElementById('feedback');
+
+  switch (rating) {
+    case 1:
+      feedback.innerHTML = "Bad ☹️";
+      break;
+    case 2:
+      feedback.innerHTML = "Average 😐";
+      break;
+    case 3:
+      feedback.innerHTML = "Good 😊";
+      break;
+    case 4:
+      feedback.innerHTML = "Very Good 👍";
+      break;
+    case 5:
+      feedback.innerHTML = "Excellent 🤩";
+      break;
+    default:
+      feedback.innerHTML = "";
+  }
+}
+</script>
+
+</body>
+</html>

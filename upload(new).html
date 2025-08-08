@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .upload-container {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .upload-section {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .custom-file-label:hover {
+            background-color: #45a049;
+        }
+
+        .upload-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .upload-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="upload-container">
+    <h2>Upload Data</h2>
+
+    <!-- Satellite Data Upload -->
+    <div class="upload-section">
+        <label for="satelliteData">Upload Satellite Data:</label>
+        <input type="file" id="satelliteData" accept=".pdf,.doc,.docx,.csv">
+        <label for="satelliteData" class="custom-file-label">Choose File</label>
+    </div>
+
+    <!-- Ground Monitoring Data Upload -->
+    <div class="upload-section">
+        <label for="groundData">Upload Ground Monitoring Data:</label>
+        <input type="file" id="groundData" accept=".jpg,.jpeg,.png,.gif,.csv">
+        <label for="groundData" class="custom-file-label">Choose File</label>
+    </div>
+
+    <!-- Upload Button -->
+    <button class="upload-button" onclick="triggerUploads()">Upload</button>
+</div>
+
+<script>
+    function triggerUploads() {
+        // Get the files from input fields
+        const satelliteInput = document.getElementById('satelliteData');
+        const groundInput = document.getElementById('groundData');
+
+        const satelliteFile = satelliteInput.files[0];
+        const groundFile = groundInput.files[0];
+
+        if (satelliteFile && groundFile) {
+            alert(
+                `Files Uploaded:\n` +
+                `Satellite Data: ${satelliteFile.name}\n` +
+                `Ground Monitoring Data: ${groundFile.name}`
+            );
+        } else if (!satelliteFile && !groundFile) {
+            alert('Please upload both Satellite Data and Ground Monitoring Data.');
+        } else if (!satelliteFile) {
+            alert('Please upload Satellite Data.');
+        } else if (!groundFile) {
+            alert('Please upload Ground Monitoring Data.');
+        }
+    }
+</script>
+
+</body>
+</html>
